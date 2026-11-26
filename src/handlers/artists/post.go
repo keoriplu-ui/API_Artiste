@@ -14,6 +14,9 @@ func PostHandler(db *gorm.DB) func(fiber.Ctx) error {
 			return c.Status(400).JSON(fiber.Map{"error": "Données invalides"})
 		}
 
+		if artist.Genre=="" || artist.Name=="" {
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "Doit avoir Genre et Name"})
+		}
 		result := db.Create(&artist)
 		if result.Error != nil {
 			return c.Status(500).JSON(fiber.Map{"error": result.Error.Error()})
