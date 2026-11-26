@@ -8,16 +8,13 @@ import (
     "gorm.io/gorm"
 )
 
-var DB *gorm.DB
-
-func ConnectDatabase() {
+func ConnectDatabase() *gorm.DB {
     db, err := gorm.Open(sqlite.Open("artists.db"), &gorm.Config{})
 
     if err != nil {
         log.Fatal("Erreur de connexion à SQLite :", err)
     }
 
-    DB = db
-
     log.Println("Connexion à SQLite réussie !")
+    return db
 }

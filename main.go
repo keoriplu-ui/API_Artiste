@@ -9,18 +9,18 @@ import (
 )
 
 func main() {
-	database.ConnectDatabase()
+	db := database.ConnectDatabase()
 
-	err := database.DB.AutoMigrate(&models.Artist{})
+	err := db.AutoMigrate(&models.Artist{})
 	if err != nil {
 		log.Fatal("Erreur migration :", err)
 	}
-	err = database.DB.AutoMigrate(&models.Concert{})
+	err = db.AutoMigrate(&models.Concert{})
 	if err != nil {
 		log.Fatal("Erreur migration :", err)
 	}
 
-	app := routes.AllRoutes()
+	app := routes.AllRoutes(db)
 
 	log.Fatal(app.Listen(":3500"))
 }
