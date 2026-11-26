@@ -31,7 +31,6 @@ func PutHandler(db *gorm.DB) func(fiber.Ctx) error {
 		result = db.Model(&artist).Updates(map[string]interface{}{
 			"name":  nouvArtist.Name,
 			"genre": nouvArtist.Genre,
-			"ID":    nouvArtist.Id,
 		})
 		if result.Error != nil {
 			return c.Status(500).JSON(fiber.Map{"error": result.Error.Error()})
