@@ -30,7 +30,7 @@
         },
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"name\": \"Daft Punk\",\n  \"genre\": \"Electro\"\n}",
+          "raw": "{\n  \"ID\": 1,\n  \"name\": \"Daft Punk\",\n  \"genre\": \"Electro\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -109,7 +109,7 @@
         },
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"name\": \"Daft Punk modifié\",\n  \"genre\": \"French House\"\n}",
+          "raw": "{\n  \"ID\": 1,\n  \"name\": \"Daft Punk modifié\",\n  \"genre\": \"French House\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -246,7 +246,7 @@
         },
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"name\": \"X\",\n  \"genre\": \"Y\"\n}",
+          "raw": "{\n  \"ID\": 999999,\n  \"name\": \"X\",\n  \"genre\": \"Y\"\n}",
           "options": {
             "raw": {
               "language": "json"

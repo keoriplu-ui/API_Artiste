@@ -1,4 +1,4 @@
-package handlers
+package concerts
 
 import (
 	"API_Artiste/src/database"
@@ -8,15 +8,15 @@ import (
 )
 
 func Post(c fiber.Ctx) error {
-	var artist models.Artist
-	if err := c.Bind().Body(&artist); err != nil {
+	var concert models.Concert
+	if err := c.Bind().Body(&concert); err != nil {
 		return c.Status(400).JSON(fiber.Map{"error": "Données invalides"})
 	}
 
-	result := database.DB.Create(&artist)
+	result := database.DB.Create(&concert)
 	if result.Error != nil {
 		return c.Status(500).JSON(fiber.Map{"error": result.Error.Error()})
 	}
 
-	return c.Status(201).JSON(artist)
+	return c.Status(201).JSON(concert)
 }

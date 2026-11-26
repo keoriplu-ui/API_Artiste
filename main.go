@@ -3,11 +3,9 @@ package main
 import (
 	"log"
 
-	fiber "github.com/gofiber/fiber/v3"
-
 	"API_Artiste/src/database"
-	"API_Artiste/src/handlers"
 	"API_Artiste/src/models"
+	"API_Artiste/src/routes"
 )
 
 func main() {
@@ -17,24 +15,14 @@ func main() {
 	if err != nil {
 		log.Fatal("Erreur migration :", err)
 	}
+	err = database.DB.AutoMigrate(&models.Concert{})
+	if err != nil {
+		log.Fatal("Erreur migration :", err)
+	}
 
-	app := fiber.New()
-
-	app.Post("/artists", handlers.Post)
-	app.Get("/artists", handlers.GetAll)
-	app.Get("/artists/:id", handlers.GetId)
-	app.Put("/artists/:id", handlers.Put)
-	app.Delete("/artists/:id", handlers.Remove)
+	app := routes.AllRoutes()
 
 	log.Fatal(app.Listen(":3500"))
 }
 
-
-
-
-
-
-
-
 // DELETE
-

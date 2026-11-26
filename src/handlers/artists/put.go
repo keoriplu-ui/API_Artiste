@@ -1,4 +1,4 @@
-package handlers
+package artists
 
 import (
 	"API_Artiste/src/database"
@@ -31,6 +31,7 @@ func Put(c fiber.Ctx) error {
 	result = database.DB.Model(&artist).Updates(map[string]interface{}{
 		"name":  nouvArtist.Name,
 		"genre": nouvArtist.Genre,
+		"ID": nouvArtist.Id,
 	})
 	if result.Error != nil {
 		return c.Status(500).JSON(fiber.Map{"error": result.Error.Error()})

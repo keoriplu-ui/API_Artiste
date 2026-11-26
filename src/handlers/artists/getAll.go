@@ -1,4 +1,4 @@
-package handlers
+package artists
 
 import (
 	"API_Artiste/src/database"

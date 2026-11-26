@@ -1,9 +1,8 @@
 package models
 
 type Concert struct {
-	Id int `json:"id"`
-	Date string `json:"date"`
-	Artist_id int `json:"artiste_id"`
+    Id       int    `json:"id"`
+    Date     string `json:"date"`
+    ArtistId int    `json:"artist_id"`
+    Artist   Artist `json:"-" gorm:"foreignKey:ArtistId;references:Id"`
 }
-
-var ListConcerts []Concert
